@@ -63,14 +63,18 @@ public class SignInController {
 			
 			String privilege = App.database.login(loginTextField.getText(), passPasswordField.getText(), passTextField.getText());
 			
+			loginTextField.setText("");
+			passTextField.setText("");
+			passPasswordField.setText("");
+			
 			if(privilege == null) {
 				Alert alert = new Alert(AlertType.ERROR, "Bad login or password.", ButtonType.OK);
 				alert.showAndWait();
 				loginAttempt++;
-			} else {
-				Alert alert = new Alert(AlertType.INFORMATION, "Successful login as " + privilege + "!", ButtonType.OK);
-				alert.showAndWait();
-			}
+			} else if(privilege.equals("Admin"))
+				App.setPane(2);
+			else if(privilege.equals("User"))
+				App.setPane(3);
 			
 			if(loginAttempt == 3) {
 				

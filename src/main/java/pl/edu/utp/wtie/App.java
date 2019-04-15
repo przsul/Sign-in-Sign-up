@@ -27,6 +27,8 @@ public class App extends Application {
 		
 		panes.add((Pane)FXMLLoader.load(getClass().getResource("/fxml/SignUpScene.fxml")));
 		panes.add((Pane)FXMLLoader.load(getClass().getResource("/fxml/SignInScene.fxml")));
+		panes.add((Pane)FXMLLoader.load(getClass().getResource("/fxml/AdminScene.fxml")));
+		panes.add((Pane)FXMLLoader.load(getClass().getResource("/fxml/UserScene.fxml")));
 		
 		stackPane.getChildren().add(panes.get(0));
 		
