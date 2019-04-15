@@ -14,6 +14,8 @@ import pl.edu.utp.wtie.App;
 
 public class SignInController {
 	
+	private int loginAttempt = 0;
+	
     @FXML
     private Button loginButton;
 
@@ -58,7 +60,20 @@ public class SignInController {
 				alert.showAndWait();
 			} else {
 				Alert alert = new Alert(AlertType.ERROR, "Bad login or password.", ButtonType.OK);
-				alert.showAndWait();				
+				alert.showAndWait();
+				loginAttempt++;
+			}
+			
+			if(loginAttempt == 3) {
+				
+				loginTextField.setDisable(true);
+				passTextField.setDisable(true);
+				passPasswordField.setDisable(true);
+				showPassCheckBox.setDisable(true);
+				loginButton.setDisable(true);
+				
+				Alert alert = new Alert(AlertType.ERROR, "You have exceeded the login limit.", ButtonType.OK);
+				alert.showAndWait();
 			}
 		});
 	}
