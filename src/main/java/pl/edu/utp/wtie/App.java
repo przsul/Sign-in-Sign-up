@@ -12,6 +12,7 @@ public class App extends Application {
 	
 	private static FXMLLoader loader;
 	private static StackPane stackPane;
+	public static final Database database = new Database();
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
@@ -23,6 +24,8 @@ public class App extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("App");
 		primaryStage.show();
+		
+		App.database.connect();
 	}
 
 	public static void main(String[] args) {

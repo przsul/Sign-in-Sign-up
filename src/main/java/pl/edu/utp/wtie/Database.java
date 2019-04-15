@@ -68,27 +68,34 @@ public class Database {
 		}
     }
     
-	public void getData() {
+    public boolean login(String login, String passPasswordField, String passTextField) {
+    	
+    	boolean result = false;
+    	
+    	String pass = passPasswordField.isEmpty() ? passTextField : passPasswordField;
+    	
+		String sql = "SELECT Login, Password FROM persons";
+		
 		try {
-			System.out.println("Creating statement...");
-			String sql;
-			sql = "SELECT Login, Password FROM persons";
 			stmt = conn.prepareStatement(sql);
-
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			String login = null;
-			String pass = null;
+			String loginDB = null;
+			String passDB = null;
 			
 			while(rs.next()) {
-				login = rs.getString("Login");
-				pass = rs.getString("Password");
+				loginDB = rs.getString("Login");
+				passDB = rs.getString("Password");
+				if(login.equals(loginDB) && pass.equals(passDB)) {
+					result = true;
+					break;
+				} else
+					result = false;
 			}
-			
-			System.out.println(login + "/" + pass);
-	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
+
+    	return result;
+    }
 }
