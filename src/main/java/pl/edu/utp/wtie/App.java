@@ -10,16 +10,19 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 	
+	private static FXMLLoader loader;
+	private static StackPane stackPane;
+
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AppScene.fxml"));
-		StackPane stackPane = loader.load();
-		
+		loader = new FXMLLoader(getClass().getResource("/fxml/SignUpScene.fxml"));
+		stackPane = loader.load();
+				
 		Scene scene = new Scene(stackPane);
 		
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("App");
-		primaryStage.show();	
+		primaryStage.show();
 	}
 
 	public static void main(String[] args) {
