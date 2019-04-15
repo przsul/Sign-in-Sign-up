@@ -26,7 +26,6 @@ public class Database {
     public void connect() {
     	try {
 			Class.forName(JDBC_DRIVER);
-			System.out.println("Connecting to database...");
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -59,7 +58,8 @@ public class Database {
 			stmt.setString(5, email);
 			stmt.setString(6, "User");
 			stmt.executeUpdate(); 
-			System.out.println("Registering user...");
+			Alert alert = new Alert(AlertType.INFORMATION, "Registration successfull.", ButtonType.OK);
+			alert.showAndWait();
 		} catch (SQLIntegrityConstraintViolationException e) {
 			Alert alert = new Alert(AlertType.ERROR, "You need to fulfil every field.", ButtonType.OK);
 			alert.showAndWait();

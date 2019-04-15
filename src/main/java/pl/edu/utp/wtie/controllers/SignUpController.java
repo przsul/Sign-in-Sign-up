@@ -54,6 +54,7 @@ public class SignUpController {
 			if(!isPasswordEqual()) {
 				Alert alert = new Alert(AlertType.ERROR, "Passwords are not equal.", ButtonType.OK);
 				alert.showAndWait();
+				return;
 			}
 			
 			database.registerUser(nameTextField.getText(), lastNameTextField.getText(),
