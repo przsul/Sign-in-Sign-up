@@ -51,6 +51,11 @@ public class SignInController {
         passTextField.setText("");
         passTextField.setVisible(false);
     }
+    
+    @FXML
+    private void toggleToSignUp() {
+    	App.setPane(0);
+    }
 	
 	@FXML
 	void initialize() {
