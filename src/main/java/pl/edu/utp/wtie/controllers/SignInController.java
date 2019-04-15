@@ -55,13 +55,16 @@ public class SignInController {
 	@FXML
 	void initialize() {
 		loginButton.setOnAction(a -> {
-			if(App.database.login(loginTextField.getText(), passPasswordField.getText(), passTextField.getText())) {
-				Alert alert = new Alert(AlertType.INFORMATION, "Successful login!", ButtonType.OK);
-				alert.showAndWait();
-			} else {
+			
+			String privilege = App.database.login(loginTextField.getText(), passPasswordField.getText(), passTextField.getText());
+			
+			if(privilege == null) {
 				Alert alert = new Alert(AlertType.ERROR, "Bad login or password.", ButtonType.OK);
 				alert.showAndWait();
 				loginAttempt++;
+			} else {
+				Alert alert = new Alert(AlertType.INFORMATION, "Successful login as " + privilege + "!", ButtonType.OK);
+				alert.showAndWait();
 			}
 			
 			if(loginAttempt == 3) {

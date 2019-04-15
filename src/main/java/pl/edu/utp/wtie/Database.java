@@ -68,13 +68,11 @@ public class Database {
 		}
     }
     
-    public boolean login(String login, String passPasswordField, String passTextField) {
-    	
-    	boolean result = false;
+    public String login(String login, String passPasswordField, String passTextField) { 	
     	
     	String pass = passPasswordField.isEmpty() ? passTextField : passPasswordField;
     	
-		String sql = "SELECT Login, Password FROM persons";
+		String sql = "SELECT Login, Password, Privilege FROM persons";
 		
 		try {
 			stmt = conn.prepareStatement(sql);
@@ -82,20 +80,20 @@ public class Database {
 			
 			String loginDB = null;
 			String passDB = null;
+			String privilegeDB = null;
 			
 			while(rs.next()) {
 				loginDB = rs.getString("Login");
 				passDB = rs.getString("Password");
-				if(login.equals(loginDB) && pass.equals(passDB)) {
-					result = true;
-					break;
-				} else
-					result = false;
+				privilegeDB = rs.getString("Privilege");
+				
+				if(login.equals(loginDB) && pass.equals(passDB))
+					return privilegeDB;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-    	return result;
+		
+		return null;
     }
 }
