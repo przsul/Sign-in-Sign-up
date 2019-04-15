@@ -42,6 +42,11 @@ public class SignUpController {
     private boolean isPasswordEqual() {
     	return passPasswordField.getText().equals(repeatPassPasswordField.getText());
     }
+    
+    @FXML
+    private void toggleToSignIn() {
+    	App.setPane(1);
+    }
 	
 	@FXML
 	void initialize() {

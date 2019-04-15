@@ -58,7 +58,7 @@ public class Database {
 			stmt.setString(5, email);
 			stmt.setString(6, "User");
 			stmt.executeUpdate(); 
-			Alert alert = new Alert(AlertType.INFORMATION, "Registration successfull.", ButtonType.OK);
+			Alert alert = new Alert(AlertType.INFORMATION, "Registration successful.", ButtonType.OK);
 			alert.showAndWait();
 		} catch (SQLIntegrityConstraintViolationException e) {
 			Alert alert = new Alert(AlertType.ERROR, "You need to fulfil every field.", ButtonType.OK);
