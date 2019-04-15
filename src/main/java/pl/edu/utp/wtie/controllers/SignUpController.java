@@ -2,17 +2,15 @@ package pl.edu.utp.wtie.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import pl.edu.utp.wtie.Database;
+import pl.edu.utp.wtie.App;
 
 public class SignUpController {
-	
-	private Database database = new Database();
 	
     @FXML
     private TextField nameTextField;
@@ -47,8 +45,6 @@ public class SignUpController {
 	
 	@FXML
 	void initialize() {
-		database.connect();
-
 		registerButton.setOnAction(a -> {
 			
 			if(!isPasswordEqual()) {
@@ -57,7 +53,7 @@ public class SignUpController {
 				return;
 			}
 			
-			database.registerUser(nameTextField.getText(), lastNameTextField.getText(),
+			App.database.registerUser(nameTextField.getText(), lastNameTextField.getText(),
 					loginTextField.getText(), passPasswordField.getText(), 
 					emailTextField.getText());
 		});
