@@ -15,7 +15,7 @@ public class App extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		loader = new FXMLLoader(getClass().getResource("/fxml/SignUpScene.fxml"));
+		loader = new FXMLLoader(getClass().getResource("/fxml/SignInScene.fxml"));
 		stackPane = loader.load();
 				
 		Scene scene = new Scene(stackPane);
