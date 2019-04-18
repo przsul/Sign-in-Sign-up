@@ -1,11 +1,14 @@
 package pl.edu.utp.wtie;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+
+import javax.mail.MessagingException;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -22,6 +25,8 @@ public class Database {
 	
 	Connection conn = null;
     PreparedStatement stmt = null;
+    
+	private static final EmailSender emailSender = new EmailSender();
     
     public void connect() {
     	try {
@@ -57,13 +62,20 @@ public class Database {
 			stmt.setString(4, pass);
 			stmt.setString(5, email);
 			stmt.setString(6, "User");
-			stmt.executeUpdate(); 
-			Alert alert = new Alert(AlertType.INFORMATION, "Registration successful.", ButtonType.OK);
+			stmt.executeUpdate();
+			
+			Database.emailSender.sendAsHtml(email, "Successful Registration!", "<h2>Registration</h2><p>Hi " + name + ",</p><p>You have been successfully registered in LAB4 application.</p><p>Regards<br>Admin</p>");
+			
+			Alert alert = new Alert(AlertType.INFORMATION, "Registration successful. Check e-mail for confirmation.", ButtonType.OK);
 			alert.showAndWait();
 		} catch (SQLIntegrityConstraintViolationException e) {
 			Alert alert = new Alert(AlertType.ERROR, "You need to fulfil every field.", ButtonType.OK);
 			alert.showAndWait();
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (MessagingException e) {
 			e.printStackTrace();
 		}
     }
