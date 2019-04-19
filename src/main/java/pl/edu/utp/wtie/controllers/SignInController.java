@@ -37,6 +37,11 @@ public class SignInController {
     @FXML
     private TextField passTextField;
     
+	@FXML
+	private void closeApp() {
+		System.exit(0);
+	}
+    
     @FXML
     private void toggleVisiblePassword(ActionEvent event) {
         if (showPassCheckBox.isSelected()) {
