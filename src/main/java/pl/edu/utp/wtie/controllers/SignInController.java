@@ -54,11 +54,13 @@ public class SignInController {
     
     @FXML
     private void toggleToSignUp() {
-    	App.setPane(0);
+    	App.setPane(App.SIGN_UP);
     }
 	
 	@FXML
 	void initialize() {
+		loginButton.defaultButtonProperty().bind(loginButton.focusedProperty());
+		
 		loginButton.setOnAction(a -> {
 			
 			String privilege = App.database.login(loginTextField.getText(), passPasswordField.getText(), passTextField.getText());
@@ -72,9 +74,9 @@ public class SignInController {
 				alert.showAndWait();
 				loginAttempt++;
 			} else if(privilege.equals("Admin"))
-				App.setPane(2);
+				App.setPane(App.ADMIN);
 			else if(privilege.equals("User"))
-				App.setPane(3);
+				App.setPane(App.USER);
 			
 			if(loginAttempt == 3) {
 				

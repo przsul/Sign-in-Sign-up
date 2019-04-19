@@ -45,11 +45,13 @@ public class SignUpController {
     
     @FXML
     private void toggleToSignIn() {
-    	App.setPane(1);
+    	App.setPane(App.SIGN_IN);
     }
 	
 	@FXML
 	void initialize() {
+		registerButton.defaultButtonProperty().bind(registerButton.focusedProperty());
+		
 		registerButton.setOnAction(a -> {
 			
 			if(!isPasswordEqual()) {

@@ -11,7 +11,7 @@ public class AdminController {
 	
 	@FXML
 	private void logout() {
-		App.setPane(1);
+		App.setPane(App.SIGN_IN);
 	}
 	
 	@FXML

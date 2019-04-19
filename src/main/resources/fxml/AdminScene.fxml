@@ -4,9 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane prefHeight="428.0" prefWidth="214.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.utp.wtie.controllers.AdminController">
+<Pane prefHeight="172.0" prefWidth="245.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.utp.wtie.controllers.AdminController">
    <children>
-      <Label layoutX="73.0" layoutY="206.0" text="Admin panel" />
-      <Button fx:id="logoutButton" layoutX="73.0" layoutY="232.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="67.0" text="Logout" />
+      <Label layoutX="89.0" layoutY="61.0" text="Admin panel" />
+      <Button fx:id="logoutButton" layoutX="89.0" layoutY="87.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="67.0" text="Logout" />
    </children>
 </Pane>
