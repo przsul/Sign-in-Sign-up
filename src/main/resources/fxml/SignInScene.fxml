@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="245.0" prefWidth="214.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.utp.wtie.controllers.SignInController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="215.0" styleClass="SignInScene" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.utp.wtie.controllers.SignInController">
    <children>
-      <Label fx:id="signInLabel" layoutX="30.0" layoutY="14.0" text="Sign-in">
+      <Label fx:id="signInLabel" layoutX="28.0" layoutY="49.0" text="Sign-in" textFill="#adadad">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -19,17 +22,87 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Label>
-      <Label fx:id="signUpLabel" layoutX="77.0" layoutY="14.0" onMouseClicked="#toggleToSignUp" text="Sign-up">
+      <Label fx:id="signUpLabel" layoutX="75.0" layoutY="49.0" onMouseClicked="#toggleToSignUp" text="Sign-up" textFill="#adadad">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Label layoutX="30.0" layoutY="42.0" text="Login:" />
-      <TextField fx:id="loginTextField" layoutX="30.0" layoutY="59.0" />
-      <Label layoutX="32.0" layoutY="96.0" text="Password:" />
-      <PasswordField fx:id="passPasswordField" layoutX="30.0" layoutY="113.0" />
-      <TextField fx:id="passTextField" layoutX="30.0" layoutY="113.0" visible="false" />
-      <CheckBox fx:id="showPassCheckBox" layoutX="34.0" layoutY="151.0" mnemonicParsing="false" onAction="#toggleVisiblePassword" text="Show password" />
-      <Button fx:id="loginButton" layoutX="30.0" layoutY="202.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Login" />
+      <Button fx:id="loginButton" layoutX="28.0" layoutY="219.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" styleClass="Button" text="LOGIN">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="215.0">
+         <children>
+            <HBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" text="  Login panel" textFill="#c2c2c2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" styleClass="min-btn">
+               <graphic>
+                  <FontAwesomeIconView glyphName="MINUS" glyphStyle="-fx-fill:white" size="1.3em">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </FontAwesomeIconView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label alignment="CENTER" layoutX="190.0" layoutY="13.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeApp" prefHeight="30.0" prefWidth="30.0" styleClass="close-btn">
+               <graphic>
+                  <FontAwesomeIconView glyphName="CLOSE" glyphStyle="-fx-fill:white" onMouseClicked="#closeApp" size="1.3em">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </FontAwesomeIconView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="28.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: #363b41;">
+               <graphic>
+                  <FontAwesomeIconView glyphName="USER" glyphStyle="-fx-fill:#ADADAD" size="1.5em" />
+               </graphic>
+            </Label>
+            <TextField fx:id="loginTextField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="35.0" promptText="Login" styleClass="TextField" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="28.0" layoutY="121.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="160.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: #363b41;">
+               <graphic>
+                  <FontAwesomeIconView glyphName="LOCK" glyphStyle="-fx-fill:#ADADAD" size="1.5em" />
+               </graphic>
+            </Label>
+            <PasswordField fx:id="passPasswordField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="35.0" promptText="Password" styleClass="TextField" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </HBox>
+      <TextField fx:id="passTextField" layoutX="63.0" layoutY="121.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="125.0" promptText="Password" styleClass="TextField">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <CheckBox fx:id="showPassCheckBox" layoutX="27.0" layoutY="164.0" mnemonicParsing="false" onAction="#toggleVisiblePassword" prefHeight="35.0" prefWidth="160.0" text="Show password" />
    </children>
 </Pane>
