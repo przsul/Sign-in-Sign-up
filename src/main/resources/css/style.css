@@ -1,4 +1,4 @@
-.SignInScene {
+.Pane {
 	-fx-background-color: #303138;
 }
 
@@ -20,29 +20,51 @@
 
 .TextField {
 	-fx-background-color: #3B4148;
-	-fx-background-radius: 0px;
+	-fx-background-radius: 0;
+	-fx-accent: #EA4C88;
 	-fx-prompt-text-fill: #ADADAD;
 	-fx-text-fill: #FFFFFF;
 }
 
 .TextField:focused {
-	-fx-background-color: #363b41;
-	-fx-background-radius: 0px;
+	-fx-focus-color: #ADADAD;
+	
+	-fx-background-color: -fx-focus-color, #363b41;
+	-fx-background-insets: -1.4;
+	-fx-background-radius: 0;
+	
 	-fx-prompt-text-fill: #ADADAD;
 	-fx-text-fill: #FFFFFF;
 }
 
 .Button {
-	-fx-background-radius: 0px;
 	-fx-background-color: #EA4C88;
+	-fx-background-radius: 0;
 	-fx-text-fill: #FFFFFF;
 }
 
-.check-box {
+
+.Button:focused {
+	-fx-focus-color: #ADADAD;
+	
+    -fx-background-color: -fx-focus-color, #EA4C88; 
+    -fx-background-insets: -1.4, 0, 1, 2;
+    -fx-background-radius:  0;
+}
+
+.CheckBox {
 	-fx-text-fill: #ADADAD;
 }
 
-.check-box > .box {
-	-fx-background-radius: 0px;
-	-fx-background-color: #3B4148;
+.CheckBox > .box {
+    -fx-background-color: #363b41;
+    -fx-background-radius: 0;
+}
+
+.CheckBox:focused > .box {
+	-fx-focus-color: #ADADAD;
+	
+    -fx-background-color: -fx-focus-color, #363b41;
+    -fx-background-insets: -1.4;
+    -fx-background-radius: 0;
 }
