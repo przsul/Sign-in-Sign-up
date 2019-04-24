@@ -39,6 +39,16 @@ public class SignUpController {
     @FXML
     private PasswordField repeatPassPasswordField;
     
+	@FXML
+	private void closeApp() {
+		System.exit(0);
+	}
+	
+	@FXML
+	private void minimizeApp() {
+		App.primaryStage.setIconified(true);
+	}
+    
     private boolean isPasswordEqual() {
     	return passPasswordField.getText().equals(repeatPassPasswordField.getText());
     }

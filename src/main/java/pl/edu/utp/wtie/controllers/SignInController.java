@@ -41,6 +41,11 @@ public class SignInController {
 	private void closeApp() {
 		System.exit(0);
 	}
+	
+	@FXML
+	private void minimizeApp() {
+		App.primaryStage.setIconified(true);
+	}
     
     @FXML
     private void toggleVisiblePassword(ActionEvent event) {

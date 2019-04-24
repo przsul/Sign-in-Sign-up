@@ -15,6 +15,16 @@ public class AdminController {
 	}
 	
 	@FXML
+	private void closeApp() {
+		System.exit(0);
+	}
+	
+	@FXML
+	private void minimizeApp() {
+		App.primaryStage.setIconified(true);
+	}
+	
+	@FXML
 	void initialize() {
 
 	}
