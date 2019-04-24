@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class App extends Application {
 	
@@ -25,6 +26,8 @@ public class App extends Application {
 	public static final int SIGN_UP = 1;
 	public static final int ADMIN = 2;
 	public static final int USER = 3;
+
+	public static Stage primaryStage = null;
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
@@ -41,8 +44,10 @@ public class App extends Application {
 		scene = new Scene(stackPane);
 		
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("LAB 4");
+		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.show();
+		
+		App.primaryStage = primaryStage;
 		
 		App.database.connect();
 	}

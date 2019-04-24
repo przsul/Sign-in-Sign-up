@@ -1,0 +1,70 @@
+.Pane {
+	-fx-background-color: #303138;
+}
+
+.close-btn {
+	-fx-background-color: transparent;
+}
+
+.close-btn:hover {
+	-fx-background-color: #E81123;
+}
+
+.min-btn {
+	-fx-background-color: transparent;
+}
+
+.min-btn:hover {
+	-fx-background-color: #171717;
+}
+
+.TextField {
+	-fx-background-color: #3B4148;
+	-fx-background-radius: 0;
+	-fx-accent: #EA4C88;
+	-fx-prompt-text-fill: #ADADAD;
+	-fx-text-fill: #FFFFFF;
+}
+
+.TextField:focused {
+	-fx-focus-color: #ADADAD;
+	
+	-fx-background-color: -fx-focus-color, #363b41;
+	-fx-background-insets: -1.4;
+	-fx-background-radius: 0;
+	
+	-fx-prompt-text-fill: #ADADAD;
+	-fx-text-fill: #FFFFFF;
+}
+
+.Button {
+	-fx-background-color: #EA4C88;
+	-fx-background-radius: 0;
+	-fx-text-fill: #FFFFFF;
+}
+
+
+.Button:focused {
+	-fx-focus-color: #ADADAD;
+	
+    -fx-background-color: -fx-focus-color, #EA4C88; 
+    -fx-background-insets: -1.4, 0, 1, 2;
+    -fx-background-radius:  0;
+}
+
+.CheckBox {
+	-fx-text-fill: #ADADAD;
+}
+
+.CheckBox > .box {
+    -fx-background-color: #363b41;
+    -fx-background-radius: 0;
+}
+
+.CheckBox:focused > .box {
+	-fx-focus-color: #ADADAD;
+	
+    -fx-background-color: -fx-focus-color, #363b41;
+    -fx-background-insets: -1.4;
+    -fx-background-radius: 0;
+}
