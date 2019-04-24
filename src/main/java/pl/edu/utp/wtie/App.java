@@ -45,7 +45,6 @@ public class App extends Application {
 		
 		primaryStage.setScene(scene);
 		primaryStage.initStyle(StageStyle.UNDECORATED);
-		primaryStage.setTitle("LAB 4");
 		primaryStage.show();
 		
 		App.primaryStage = primaryStage;
